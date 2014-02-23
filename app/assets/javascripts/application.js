@@ -16,11 +16,13 @@
 
 
 $(function(){
-$('#cheerup_characters').keyup(function () {
-    var left = 141 - $(this).val().length;
-    // if (left < 0) {
-    //     left = 0;
-    // }
-    $('#counter').text('Characters left: ' + left);
-});
+  $('#cheerup_characters').keyup(function () {
+      var left = 141 - $(this).val().length;
+      if (left <= 10) {
+        $('#counter').removeClass().addClass('countCharsRed');
+      } else {
+          $('#counter').removeClass().addClass('countCharsOK');
+      }
+      $('#counter').text('Characters left: ' + left);
+  });
 })

@@ -2,10 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.cheerup {
-  margin: 20px auto;
-  padding: 20px;
-  width: 600px;
-  height: 400px;
-  background: #eee;
+// .cheerup {
+//   margin: 20px auto;
+//   padding: 20px;
+//   width: 600px;
+//   height: 400px;
+//   background: #eee;
+// }
+
+
+.countCharsOk {
+ color:green;
+}
+
+.countCharsRed {
+ color:red;
 }
