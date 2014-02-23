@@ -3,14 +3,17 @@ class CheerupsController < ApplicationController
   # GET /cheerups
   # GET /cheerups.json
   def index
-    @cheerups = Cheerup.all
+    @cheerups = Cheerup.paginate(:page => params[:page])
     # order(:created_at).reverse
 
     respond_to do |format|
+      format.js
       format.html # index.html.erb
       format.json { render json: @cheerups }
+
     end
   end
+
 
   # GET /cheerups/1
   # GET /cheerups/1.json
