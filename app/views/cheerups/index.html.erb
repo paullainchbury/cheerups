@@ -1,4 +1,4 @@
-<!-- <h1>Listing cheerups</h1>
+<h1>Listing cheerups</h1>
 
 <table>
   <tr>
@@ -11,29 +11,20 @@
     <th></th>
   </tr>
 
-<%# @cheerups.each do |cheerup| %>
+<% @cheerups.each do |cheerup| %>
   <tr>
-    <td><%#= cheerup.characters %></td>
-    <td><%#= cheerup.cheerpoints %></td>
-    <td><%#= link_to 'UpVote', cheerup %> | <%#= link_to 'DownVote', cheerup %></td>
-    <td><%#= cheerup.user.email %>(<%#=cheerup.user.cheerpoints %>)</td>
-    <td><%#= "#{time_ago_in_words(cheerup.created_at)} ago "%></td>
-    <td><%#= link_to 'Show', cheerup %></td>
-    <td><%#= link_to 'Edit', edit_cheerup_path(cheerup) %></td>
-    <td><%#= link_to 'Destroy', cheerup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= cheerup.characters %></td>
+    <td><%= cheerup.cheerpoints %></td>
+    <td><%= link_to 'UpVote', cheerup %> | <%= link_to 'DownVote', cheerup %></td>
+    <td><%= cheerup.user.email %>(<%=cheerup.user.cheerpoints %>)</td>
+    <td><%= "#{time_ago_in_words(cheerup.created_at)} ago "%></td>
+    <td><%= link_to 'Show', cheerup %></td>
+    <td><%= link_to 'Edit', edit_cheerup_path(cheerup) %></td>
+    <td><%= link_to 'Destroy', cheerup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
-<%# end %>
+<% end %>
 </table>
 
 <br />
 
-<%#= link_to 'New Cheerup', new_cheerup_path %> -->
-
-
-
-<h1>Listing cheerupsss</h1>
-<div class="cheerup">
-  <%= render :partial => 'shared/cheerups', :locals => { :cheerups => @cheerups } %>
-</div>
-<%= link_to 'Load More Posts', cheerups_path(:page => @cheerups.next_page), :class => 'load-more-posts', :remote => true if @cheerups.next_page %>
-
+<%= link_to 'New Cheerup', new_cheerup_path %>

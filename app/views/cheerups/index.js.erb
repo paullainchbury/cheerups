@@ -1,5 +1,0 @@
-$('.cheerups').append('#{escape_javascript(render partial: "shared/cheerups", :locals => { :cheerups => @cheerups })}');
-$('a.load-more-cheerups').attr('href', '#{cheerups_path page: @cheerups.next_page}');
-<% unless @cheerups.next_page %>
-  $('a.load-more-cheerups').remove();
-<% end %>
