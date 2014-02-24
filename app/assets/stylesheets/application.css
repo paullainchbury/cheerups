@@ -15,9 +15,14 @@ body {
   min-width: 960px;
 }
 
+ul {
+  margin-top: 0px;
+}
+
 #nav {
   background-color: #efefef;
-}
+  height: 50px;
+/*]*/}
 
 li {
   display: inline;
