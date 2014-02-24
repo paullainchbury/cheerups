@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.infinitescroll
 //= require_tree .
 
 
@@ -38,3 +39,4 @@ $(function(){
     $('#counter').text(charsLeft);
     }
 });
+

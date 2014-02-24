@@ -1,32 +1,25 @@
 <h1>Listing cheerups</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Subtitle</th>
-    <th>Cheerpoints</th>
-    <th>Vote</th>
-    <th>User</th>
-    <th>Created</th>
-    <th></th>
-    <th></th>
-  </tr>
+<table id="cheerups">
+  <thead>
+      <tr>
+        <th>Title</th>
+        <th>Subtitle</th>
+        <th>Cheerpoints</th>
+        <th>Vote</th>
+        <th>User</th>
+        <th>Created</th>
+        <th></th>
+        <th></th>
+      </tr>
+  </thead>
 
-<% @cheerups.each do |cheerup| %>
-  <tr>
-    <td><%= cheerup.title %></td>
-    <td><%= cheerup.sub_title %></td>
-    <td><%= cheerup.cheerpoints %></td>
-    <td><%= link_to 'UpVote', cheerup %> | <%= link_to 'DownVote', cheerup %></td>
-    <td><%= cheerup.user.email %>(<%=cheerup.user.cheerpoints %>)</td>
-    <td><%= "#{time_ago_in_words(cheerup.created_at)} ago "%></td>
-    <td><%= link_to 'Show', cheerup %></td>
-    <td><%= link_to 'Edit', edit_cheerup_path(cheerup) %></td>
-    <td><%= link_to 'Destroy', cheerup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+  <tbody class="page">
+    <%= render @cheerups %>
+  </tbody>
 </table>
 
-<br />
+<br>
 
 <%= link_to 'New Cheerup', new_cheerup_path %>
+<%= paginate @cheerups %>

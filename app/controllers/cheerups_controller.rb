@@ -3,7 +3,7 @@ class CheerupsController < ApplicationController
   # GET /cheerups
   # GET /cheerups.json
   def index
-    @cheerups = Cheerup.all
+    @cheerups = Cheerup.order(:created_at).page(params[:page])
     # order(:created_at).reverse
 
     respond_to do |format|
