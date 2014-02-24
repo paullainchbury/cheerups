@@ -1,7 +1,11 @@
 Cheerupapp::Application.routes.draw do
  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks'}
 
-  resources :cheerups
+  resources :cheerups do
+    member do
+      get :flag
+    end
+  end
 
   root :to => "cheerups#index"
 

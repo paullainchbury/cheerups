@@ -85,4 +85,26 @@ class CheerupsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def flag
+    @cheerup = Cheerup.find(params[:id])
+    if current_user.flagged?(@cheerup, :inappropriate)
+      #user has already flagged the cheerup
+       current_user.unflag(@cheerup, :inappropriate)
+       msg = "You have unflagged this cheerup"
+     else
+      #user hasn't flagged the cheerup yet
+       current_user.flag(@cheerup, :inappropriate)
+       msg = "You have flagged this for some reason"
+     end
+    redirect_to @cheerup, notice: msg
+
+  end
+
+
 end
+
+
+
+
+

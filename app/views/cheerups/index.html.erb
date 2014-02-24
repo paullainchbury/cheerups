@@ -1,5 +1,5 @@
 <h1>Listing cheerups</h1>
-
+<%= flash[:notice] %>
 <table>
   <tr>
     <th>Title</th>
@@ -20,6 +20,8 @@
     <td><%= link_to 'UpVote', cheerup %> | <%= link_to 'DownVote', cheerup %></td>
     <td><%= cheerup.user.email %>(<%=cheerup.user.cheerpoints %>)</td>
     <td><%= "#{time_ago_in_words(cheerup.created_at)} ago "%></td>
+    <td><%= toggle_flag_button(cheerup, current_user) %></td>
+
     <td><%= link_to 'Show', cheerup %></td>
     <td><%= link_to 'Edit', edit_cheerup_path(cheerup) %></td>
     <td><%= link_to 'Destroy', cheerup, method: :delete, data: { confirm: 'Are you sure?' } %></td>

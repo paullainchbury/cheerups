@@ -10,7 +10,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'will_paginate', '~> 3.0.5'
 gem 'pry-byebug'
-
+gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
