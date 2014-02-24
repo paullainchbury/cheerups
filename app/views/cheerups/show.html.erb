@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Characters:</b>
-  <%= @cheerup.characters %>
+  <b>Title:</b>
+  <%= @cheerup.title %>
+</p>
+
+<p>
+  <b>Sub Title:</b>
+  <%= @cheerup.sub_title %>
 </p>
 
 <p>
@@ -12,7 +17,7 @@
 
 <p>
   <b>User:</b>
-  <%= @cheerup.user %>
+  <%= @cheerup.user.email %>
 </p>
 
 

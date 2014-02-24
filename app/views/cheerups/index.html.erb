@@ -2,7 +2,8 @@
 
 <table>
   <tr>
-    <th>Cheerup</th>
+    <th>Title</th>
+    <th>Subtitle</th>
     <th>Cheerpoints</th>
     <th>Vote</th>
     <th>User</th>
@@ -13,7 +14,8 @@
 
 <% @cheerups.each do |cheerup| %>
   <tr>
-    <td><%= cheerup.characters %></td>
+    <td><%= cheerup.title %></td>
+    <td><%= cheerup.sub_title %></td>
     <td><%= cheerup.cheerpoints %></td>
     <td><%= link_to 'UpVote', cheerup %> | <%= link_to 'DownVote', cheerup %></td>
     <td><%= cheerup.user.email %>(<%=cheerup.user.cheerpoints %>)</td>

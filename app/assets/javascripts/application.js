@@ -16,13 +16,25 @@
 
 
 $(function(){
-  $('#cheerup_characters').keyup(function () {
-      var left = 141 - $(this).val().length;
-      if (left <= 10) {
-        $('#counter').removeClass().addClass('countCharsRed');
-      } else {
-          $('#counter').removeClass().addClass('countCharsOK');
-      }
-      $('#counter').text('Characters left: ' + left);
+  $('#cheerup_title').keyup(function () {
+      charCheck()
   });
-})
+
+  $('#cheerup_sub_title').keyup(function(){
+      charCheck()
+  });
+
+  function charCheck() {
+    var charsAvailable = 141
+    var titleCharCount = $('#cheerup_title').val().length;
+    var subtitleCharCount = $('#cheerup_sub_title').val().length;
+    var totalChars = titleCharCount + subtitleCharCount
+    var charsLeft = charsAvailable - totalChars
+    if (charsLeft <= 10) {
+      $('#counter').removeClass().addClass('countCharsRed');
+    } else {
+        $('#counter').removeClass().addClass('countCharsOK');
+      }
+    $('#counter').text(charsLeft);
+    }
+});
