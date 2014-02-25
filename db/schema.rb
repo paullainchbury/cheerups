@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140224144204) do
+ActiveRecord::Schema.define(:version => 20140225083124) do
 
   create_table "cheerups", :force => true do |t|
     t.integer  "cheerpoints"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20140224144204) do
     t.datetime "updated_at",  :null => false
     t.string   "title"
     t.string   "sub_title"
+    t.string   "image"
   end
 
   add_index "cheerups", ["user_id"], :name => "index_cheerups_on_user_id"
