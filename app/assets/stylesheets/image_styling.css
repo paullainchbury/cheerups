@@ -18,6 +18,44 @@
   top: 20px;
 }
 
+#default_image_thumbnails {
+  margin-bottom: 30px;
+  height: 40px;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 50px;
+  background-size: cover;
+  float: left;
+  margin-right: 10px;
+}
+
+#thumb1 {
+  background-image:url('motivation1.png');
+}
+
+#thumb2 {
+  background-image:url('motivation2.png');
+}
+
+#thumb3 {
+  background-image:url('littlehouse.jpg');
+}
+
+#thumb4 {
+  background-image:url('paradise.jpg');
+}
+
+#thumb5 {
+  background-image:url('road.jpg');
+}
+
+#thumb6 {
+  background-image:url('yellowfield.jpg');
+  margin-right: 0px;
+}
+
 #main_text, #sub_text {
   color: white;
   text-align: center;

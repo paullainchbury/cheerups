@@ -12,6 +12,7 @@
   <div class="cheerup_author">Created by <%= cheerup.user.email %> <%= time_ago_in_words(cheerup.created_at) %> ago</div>
   <div class="voting">Vote Up || Vote down || <%= cheerup.cheerpoints %> votes already </div>
   <div class="actions"><%= link_to 'Edit', edit_cheerup_path(cheerup) %> | <%= link_to 'Delete', cheerup, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+  <div class="sharing"><button id="facebook_share">Share this on Facebook</button></div>
 </div>
 <% end %>
 
