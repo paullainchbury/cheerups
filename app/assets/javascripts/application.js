@@ -27,6 +27,8 @@ $(function(){
       changeCheerupImage();
   });
 
+  changeCheerupImage();
+
 });
 
 function charCheck() {

@@ -1,38 +1,18 @@
-<h1>Listing cheerups</h1>
-
-<table id="cheerups">
-  <thead>
-      <tr>
-        <th>Title</th>
-        <th>Subtitle</th>
-        <th>Cheerpoints</th>
-        <th>Vote</th>
-        <th>User</th>
-        <th>Created</th>
-        <th></th>
-        <th></th>
-      </tr>
-  </thead>
-
-  <tbody class="page">
-    <% @cheerups.each do |cheerup| %>
-  <tr>
-    <td><%= cheerup.title %></td>
-    <td><%= cheerup.sub_title %></td>
-    <td><%= cheerup.cheerpoints %></td>
-    
-    <td><%= cheerup.user.email %></td>
-    <td><%= cheerup.created_at %></td>
-    <td><%= link_to 'Show', cheerup %></td>
-    <td><%= link_to 'Edit', edit_cheerup_path(cheerup) %></td>
-    <td><%= link_to 'Destroy', cheerup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-    
-  </tbody>
-</table>
-
-<br>
+<h1>Cheerups</h1>
 
 <%= link_to 'New Cheerup', new_cheerup_path %>
+
+<% @cheerups.each do |cheerup| %>
+<div class="a_cheerup">
+  <div id="the_canvas">
+    <div id="the_image"></div>
+    <div id="main_text"><%= cheerup.title %></div>
+    <div id="sub_text"><%= cheerup.sub_title %></div>
+  </div>
+  <div class="cheerup_author">Created by <%= cheerup.user.email %> <%= time_ago_in_words(cheerup.created_at) %> ago</div>
+  <div class="voting">Vote Up || Vote down || <%= cheerup.cheerpoints %> votes already </div>
+  <div class="actions"><%= link_to 'Edit', edit_cheerup_path(cheerup) %> | <%= link_to 'Delete', cheerup, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+</div>
+<% end %>
+
 <%= paginate @cheerups %>
