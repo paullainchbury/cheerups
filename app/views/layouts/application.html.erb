@@ -24,6 +24,21 @@
       <p class="alert"><%= alert %></p>
     </div>
 
+
+    <table>
+      <tr>
+        <td>Email</td>
+        <td>Total Points</td>
+      </tr>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.total_votes_received %></td>
+      </tr>
+      <% end %>
+    </table>
+
+
   <div class="container" >
   <%= yield %>
   </div>
