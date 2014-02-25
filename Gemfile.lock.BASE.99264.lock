@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/cavneb/make_flaggable.git
-  revision: 9819f5c75df76633bf365bcbbaf9716bd3f65c37
-  specs:
-    make_flaggable (0.1.1)
-      activerecord (>= 3.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -72,9 +65,6 @@ GEM
     json (1.8.1)
     jwt (0.1.11)
       multi_json (>= 1.5)
-    kaminari (0.15.1)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -158,6 +148,7 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    will_paginate (3.0.5)
 
 PLATFORMS
   ruby
@@ -166,11 +157,10 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
-  kaminari
-  make_flaggable!
   omniauth-facebook
   pg
   pry-byebug
   rails (= 3.2.16)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
+  will_paginate (~> 3.0.5)

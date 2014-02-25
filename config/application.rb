@@ -63,3 +63,15 @@ module Cheerupapp
     config.assets.initialize_on_precompile = false
   end
 end
+
+
+
+#use MakeFlaggable::Flagging.count in rails console to count the number of flaggings
+
+module MakeFlaggable
+  class Flagging < ActiveRecord::Base
+    attr_accessible :flaggable_id, :flaggable_type, :flag
+  end
+end
+
+

@@ -166,8 +166,11 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
-  kaminari
+<<<<<<< HEAD
   make_flaggable!
+=======
+  kaminari
+>>>>>>> ae031ef7ab90b313fb27ae0eafb487c7d63a9899
   omniauth-facebook
   pg
   pry-byebug
