@@ -30,6 +30,16 @@ class User < ActiveRecord::Base
     end
   end
 
+  # overloading the `MakeFlaggable` gem's `flag!` method to update by id rather than association (which doesn't work for Rails 3.2)
+  def flag!(flaggable, flag)
+    check_flaggable(flaggable, flag)
+    if flagged?(flaggable, flag)
+      raise MakeFlaggable::Exceptions::AlreadyFlaggedError.new
+    end
 
-
+  new_flag =    flaggings.build(:flaggable_id => flaggable.id, :flaggable_type => flaggable.class.name)
+  new_flag.send :write_attribute, :flag, flag # Michael wrote this... it stinks, DON'T DO IT (next time, find a working Gem ;-)
+  new_flag.save
+  new_flag
+  end
 end

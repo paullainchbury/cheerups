@@ -1,6 +1,7 @@
 <h1>Listing cheerups</h1>
+
 <%= flash[:notice] %>
-<table>
+<table id="cheerups">
   <tr>
     <th>Title</th>
     <th>Subtitle</th>
@@ -29,6 +30,7 @@
 <% end %>
 </table>
 
-<br />
+<br>
 
 <%= link_to 'New Cheerup', new_cheerup_path %>
+<%= paginate @cheerups %>

@@ -70,7 +70,7 @@ end
 
 module MakeFlaggable
   class Flagging < ActiveRecord::Base
-    attr_accessible :flaggable, :flagger, :flag
+    attr_accessible :flaggable_id, :flaggable_type, :flag
   end
 end
 

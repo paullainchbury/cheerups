@@ -12,19 +12,24 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.infinitescroll
 //= require_tree .
 
 
 $(function(){
   $('#cheerup_title').keyup(function () {
-      charCheck()
+      charCheck();
+      changeCheerupImage();
   });
 
   $('#cheerup_sub_title').keyup(function(){
-      charCheck()
+      charCheck();
+      changeCheerupImage();
   });
 
-  function charCheck() {
+});
+
+function charCheck() {
     var charsAvailable = 141
     var titleCharCount = $('#cheerup_title').val().length;
     var subtitleCharCount = $('#cheerup_sub_title').val().length;
@@ -37,4 +42,8 @@ $(function(){
       }
     $('#counter').text(charsLeft);
     }
-});
+
+function changeCheerupImage() {
+  $('#main_text').text($('#cheerup_title').val());
+  $('#sub_text').text($('#cheerup_sub_title').val());
+};
