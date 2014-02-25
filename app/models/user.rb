@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :cheerups
+  has_many :cheerup_votes
   make_flagger
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -41,5 +42,18 @@ class User < ActiveRecord::Base
   new_flag.send :write_attribute, :flag, flag # Michael wrote this... it stinks, DON'T DO IT (next time, find a working Gem ;-)
   new_flag.save
   new_flag
+  end
+
+  def total_votes_received
+    CheerupVote.joins(:cheerup).where(cheerups: {user_id: self.id}).sum('value')
+  end
+
+  def self.by_rep
+    User.all.sort { |x,y| y.total_votes_received <=> x.total_votes_received }
+  end
+
+  def can_vote_for?(cheerup)
+    # cheerup_votes.build(value: 1, cheerup: cheerup).valid?
+    true
   end
 end
