@@ -95,7 +95,7 @@ class CheerupsController < ApplicationController
      else
       #user hasn't flagged the cheerup yet
        current_user.flag(@cheerup, :inappropriate)
-       msg = "You have flagged this for some reason"
+       msg = "You have flagged this cheerup"
      end
     redirect_to @cheerup, notice: msg
 

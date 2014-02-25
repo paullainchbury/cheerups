@@ -66,7 +66,7 @@ end
 
 
 
-#use MakeFlaggable::Flagging.count in irb to count the number of flaggings
+#use MakeFlaggable::Flagging.count in rails console to count the number of flaggings
 
 module MakeFlaggable
   class Flagging < ActiveRecord::Base

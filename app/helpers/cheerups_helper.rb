@@ -1,6 +1,6 @@
 module CheerupsHelper
   def toggle_flag_button(cheerup, user)
-    if current_user.flagged?(cheerup, :inappropriate)
+    if user.flagged?(cheerup, :inappropriate)
       #user has already flagged the cheerup
       link_to "Unflag", flag_cheerup_path(cheerup)
     else
