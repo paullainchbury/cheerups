@@ -1,36 +1,22 @@
-<h1>Listing cheerups</h1>
+<h1>Cheerups</h1>
+
 
 <%= flash[:notice] %>
-<table id="cheerups">
-  <tr>
-    <th>Title</th>
-    <th>Subtitle</th>
-    <th>Cheerpoints</th>
-    <th>Vote</th>
-    <th>User</th>
-    <th>Created</th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @cheerups.each do |cheerup| %>
-  <tr>
-    <td><%= cheerup.title %></td>
-    <td><%= cheerup.sub_title %></td>
-    <td><%= cheerup.cheerpoints %></td>
-    <td><%= link_to 'UpVote', cheerup %> | <%= link_to 'DownVote', cheerup %></td>
-    <td><%= cheerup.user.email %>(<%=cheerup.user.cheerpoints %>)</td>
-    <td><%= "#{time_ago_in_words(cheerup.created_at)} ago "%></td>
-    <td><%= toggle_flag_button(cheerup, current_user) %></td>
-
-    <td><%= link_to 'Show', cheerup %></td>
-    <td><%= link_to 'Edit', edit_cheerup_path(cheerup) %></td>
-    <td><%= link_to 'Destroy', cheerup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br>
 
 <%= link_to 'New Cheerup', new_cheerup_path %>
+
+
+<% @cheerups.each do |cheerup| %>
+<div class="a_cheerup">
+  <div id="the_canvas">
+    <div id="the_image"></div>
+    <div id="main_text"><%= cheerup.title %></div>
+    <div id="sub_text"><%= cheerup.sub_title %></div>
+  </div>
+  <div class="cheerup_author">Created by <%= cheerup.user.email %> <%= time_ago_in_words(cheerup.created_at) %> ago</div>
+  <div class="voting">Vote Up || Vote down || <%= cheerup.cheerpoints %> votes already </div>
+  <div class="actions"><%= link_to 'Edit', edit_cheerup_path(cheerup) %> | <%= link_to 'Delete', cheerup, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= toggle_flag_button(cheerup, current_user) %></div>
+</div>
+<% end %>
+
 <%= paginate @cheerups %>
