@@ -9,7 +9,7 @@
 <% @cheerups.each do |cheerup| %>
 <div class="a_cheerup">
   <div id="the_canvas">
-    <div id="the_image"></div>
+    <img class="the_image" src="<%= cheerup.image %>"/>
     <div id="main_text"><%= cheerup.title %></div>
     <div id="sub_text"><%= cheerup.sub_title %></div>
   </div>

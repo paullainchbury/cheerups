@@ -8,11 +8,11 @@
   margin-bottom: 50px;
 }
 
-#the_image {
+.the_image {
   height: 250px;
   width: 470px;
-  background-image:url('motivation2.png');
-  background-size: cover;
+  /*background-image:url('motivation2.png');
+  background-size: cover;*/
   position: relative;
   left: 30px;
   top: 20px;

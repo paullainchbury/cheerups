@@ -3,7 +3,7 @@ class Cheerup < ActiveRecord::Base
   has_many :cheerup_votes
 
   make_flaggable :inappropriate
-  attr_accessible :title, :sub_title, :cheerpoints
+  attr_accessible :title, :sub_title, :cheerpoints, :image
 
   default_scope order("created_at DESC")
 

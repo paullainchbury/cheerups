@@ -23,9 +23,14 @@
   </div>
 
   <div id="the_canvas">
-    <div id="the_image"></div>
+    <img class="the_image" src="<%= @cheerup.image %>"/>
     <div id="main_text">THE CHEERUP TITLE</div>
     <div id="sub_text">Your gems of wisdom</div>
+  </div>
+
+  <div class="field">
+      <%= f.label :image %><br />
+      <%= f.text_field :image %>
   </div>
 
   <div class="field">
