@@ -15,6 +15,19 @@
   </thead>
 
   <tbody class="page">
+    <% @cheerups.each do |cheerup| %>
+  <tr>
+    <td><%= cheerup.title %></td>
+    <td><%= cheerup.sub_title %></td>
+    <td><%= cheerup.cheerpoints %></td>
+    
+    <td><%= cheerup.user.email %></td>
+    <td><%= cheerup.created_at %></td>
+    <td><%= link_to 'Show', cheerup %></td>
+    <td><%= link_to 'Edit', edit_cheerup_path(cheerup) %></td>
+    <td><%= link_to 'Destroy', cheerup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
     
   </tbody>
 </table>
