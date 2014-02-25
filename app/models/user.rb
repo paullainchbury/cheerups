@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  before_validation :set_default_role
   has_many :cheerups
   make_flagger
   # Include default devise modules. Others available are:
@@ -41,5 +42,15 @@ class User < ActiveRecord::Base
   new_flag.send :write_attribute, :flag, flag # Michael wrote this... it stinks, DON'T DO IT (next time, find a working Gem ;-)
   new_flag.save
   new_flag
+  end
+
+  def role?(role)
+    self.role.to_s == role.to_s
+  end
+
+
+  private
+  def set_default_role
+    self.role ||= :user
   end
 end

@@ -1,4 +1,6 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+    #load_and_authorize_resource
+
       def facebook
         user = User.find_for_facebook_oauth(request.env["omniauth.auth"])
         if user.persisted?
