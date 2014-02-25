@@ -7,7 +7,7 @@ class Cheerup < ActiveRecord::Base
 
   default_scope order("created_at DESC")
 
-  validates :title, :sub_title, length: { maximum: 141 }
+  validates :title, :sub_title, length: { maximum: 141 }, presence: true 
 
   def self.by_votes
     Cheerup.all.sort { |x,y| y.votes <=> x.votes }
