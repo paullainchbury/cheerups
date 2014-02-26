@@ -1,9 +1,6 @@
-<h1>Cheerups</h1>
-
 
 <%= flash[:notice] %>
 
-<%= link_to 'New Cheerup', new_cheerup_path %>
 
 
 <% @cheerups.each do |cheerup| %>
@@ -37,7 +34,6 @@
        addthis:title="An Example Title"></a>
     </div>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-530dff5028c3c4f8"></script>
-    <div class="fb-share-button" data-href="http://localhost:3000" data-width="150" data-type="button_count"></div>
   <!-- AddThis Button END -->
 </div>
 <% end %>
