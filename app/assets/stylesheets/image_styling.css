@@ -2,6 +2,7 @@
   height: 360px;
   width: 530px;
   background-color: black;
+  display: inline-block;
 }
 
 .a_cheerup {
