@@ -1,25 +1,3 @@
-<p id="notice"><%= notice %></p>
+<%= render @cheerup %>
 
-<p>
-  <b>Title:</b>
-  <%= @cheerup.title %>
-</p>
-
-<p>
-  <b>Sub Title:</b>
-  <%= @cheerup.sub_title %>
-</p>
-
-<p>
-  <b>Cheerpoints:</b>
-  <%= @cheerup.cheerpoints %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @cheerup.user.email %>
-</p>
-
-
-<%= link_to 'Edit', edit_cheerup_path(@cheerup) %> |
-<%= link_to 'Back', cheerups_path %>
+<p><%= link_to 'Back', cheerups_path %></p>

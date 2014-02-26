@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   before_validation :set_default_role
   has_many :cheerups
+  has_many :cheerup_votes
   make_flagger
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -44,6 +45,7 @@ class User < ActiveRecord::Base
   new_flag
   end
 
+<<<<<<< HEAD
   def role?(role)
     self.role.to_s == role.to_s
   end
@@ -52,5 +54,18 @@ class User < ActiveRecord::Base
   private
   def set_default_role
     self.role ||= :user
+=======
+  def total_votes_received
+    CheerupVote.joins(:cheerup).where(cheerups: {user_id: self.id}).sum('value')
+  end
+
+  def self.by_rep
+    User.all.sort { |x,y| y.total_votes_received <=> x.total_votes_received }
+  end
+
+  def can_vote_for?(cheerup)
+    # cheerup_votes.build(value: 1, cheerup: cheerup).valid?
+    true
+>>>>>>> af3274836e77f3783ae77c7f85f1f093f7385fd0
   end
 end

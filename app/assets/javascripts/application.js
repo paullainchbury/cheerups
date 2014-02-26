@@ -28,27 +28,33 @@ $(function(){
   });
 
   $('#thumb1').click(function(){
-      changeCheerupImage('/assets/Motivation1.png')
+      changeCheerupImage('/assets/Motivation1.png');
+      changeImageText('/assets/Motivation1.png');
   });
 
   $('#thumb2').click(function(){
-      changeCheerupImage('/assets/Motivation2.png')
+      changeCheerupImage('/assets/Motivation2.png');
+      changeImageText('/assets/Motivation2.png');
   });
 
   $('#thumb3').click(function(){
-      changeCheerupImage('/assets/littlehouse.jpg')
+      changeCheerupImage('/assets/littlehouse.jpg');
+      changeImageText('/assets/littlehouse.jpg');
   });
 
   $('#thumb4').click(function(){
-      changeCheerupImage('/assets/paradise.jpg')
+      changeCheerupImage('/assets/paradise.jpg');
+      changeImageText('/assets/paradise.jpg');
   });
 
   $('#thumb5').click(function(){
-      changeCheerupImage('/assets/road.jpg')
+      changeCheerupImage('/assets/road.jpg');
+      changeImageText('/assets/road.jpg');
   });
 
   $('#thumb6').click(function(){
-      changeCheerupImage('/assets/yellowfield.jpg')
+      changeCheerupImage('/assets/yellowfield.jpg');
+      changeImageText('/assets/yellowfield.jpg');
   });
 
   changeCheerupText();
@@ -75,5 +81,11 @@ function changeCheerupText() {
 };
 
 function changeCheerupImage(image) {
-  $('#the_image').css("background-image", "url(" + image + ")");  
-}
+  $('.the_image').attr('src', image);
+};
+
+function changeImageText(image) {
+  $('#cheerup_image').text("");
+  $('#cheerup_image').text(image);
+  $('#cheerup_image').val(image);
+};

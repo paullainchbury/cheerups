@@ -4,7 +4,8 @@ class CheerupsController < ApplicationController
   # GET /cheerups
   # GET /cheerups.json
   def index
-    @cheerups = Cheerup.order(:created_at).page(params[:page])
+    @cheerups = Cheerup.by_votes
+    # .page(params[:page]) Have removed this for now -  will probably throw an error at page
     # order(:created_at).reverse
 
     respond_to do |format|
@@ -102,6 +103,14 @@ class CheerupsController < ApplicationController
 
   end
 
+  def vote
+    vote = current_user.cheerup_votes.new(value: params[:value], cheerup_id: params[:id])
+    if vote.save
+      redirect_to :back, notice: "Thank you for voting."
+    else
+      redirect_to :back, alert: "Unable to vote, perhaps you already did."
+    end    
+  end
 
 end
 

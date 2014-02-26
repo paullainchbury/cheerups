@@ -4,6 +4,7 @@ Cheerupapp::Application.routes.draw do
   resources :cheerups do
     member do
       get :flag
+      post :vote
     end
   end
 

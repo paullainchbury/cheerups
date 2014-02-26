@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20140225200001) do
+=======
+ActiveRecord::Schema.define(:version => 20140225083124) do
+
+  create_table "cheerup_votes", :force => true do |t|
+    t.integer  "cheerup_id"
+    t.integer  "user_id"
+    t.integer  "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+>>>>>>> af3274836e77f3783ae77c7f85f1f093f7385fd0
 
   create_table "cheerups", :force => true do |t|
     t.integer  "cheerpoints"
