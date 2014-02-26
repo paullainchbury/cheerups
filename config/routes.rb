@@ -5,12 +5,15 @@ Cheerupapp::Application.routes.draw do
     member do
       get :flag
       post :vote
+      get :clear_flags
     end
   end
 
   root :to => "cheerups#index"
 
   get '/flagged_cheerups', to: 'cheerups#flagged_cheerups', as: 'flagged_cheerups'
+
+  # get '/ignore_flagged_cheerups', to: 'cheerups#ignore_flagged', as: 'ignore_flagged_cheerups'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
