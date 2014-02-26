@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  before_validation :set_default_role
   has_many :cheerups
   has_many :cheerup_votes
   make_flagger
@@ -17,7 +18,7 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       #user.name = auth.info.name
-      #user.image = auth.info.image #line is here to say update image when you next login
+      user.image = auth.info.image #line is here to say update image when you next login
       user
     else
       where(auth.slice(:provider, :uid)).first_or_create do |user|
@@ -26,7 +27,7 @@ class User < ActiveRecord::Base
         user.email = auth.info.email
         user.password = Devise.friendly_token[0,20]
         # user.name = auth.info.name
-        # user.image = auth.info.image
+        user.image = auth.info.image
       end
     end
   end
@@ -44,6 +45,10 @@ class User < ActiveRecord::Base
   new_flag
   end
 
+  def role?(role)
+    self.role.to_s == role.to_s
+  end
+
   def total_votes_received
     CheerupVote.joins(:cheerup).where(cheerups: {user_id: self.id}).sum('value')
   end
@@ -56,4 +61,10 @@ class User < ActiveRecord::Base
     # cheerup_votes.build(value: 1, cheerup: cheerup).valid?
     true
   end
+
+  private
+  def set_default_role
+    self.role ||= :user
+  end
+
 end
