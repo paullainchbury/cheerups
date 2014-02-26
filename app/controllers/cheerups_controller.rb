@@ -105,7 +105,8 @@ class CheerupsController < ApplicationController
 
 
   def flagged_cheerups
-      @cheerups = Cheerup.where(flag: true)
+
+      @cheerups = Cheerup.all
   end
 
 

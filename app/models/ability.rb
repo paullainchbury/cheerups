@@ -5,6 +5,7 @@ def initialize(user)
     user ||= User.new
     if user.role? :admin
         can :manage, :all
+        can :flagged_cheerups, Cheerup
     elsif user.role? :user
         can :manage, Cheerup do |cheerup|
              cheerup.try(:user) == user
@@ -16,7 +17,8 @@ def initialize(user)
         can :create, Cheerup
         can :flag, Cheerup
         can :vote, Cheerup
-        cannot :able_to_see_link, Cheerup
+        cannot :flagged_cheerups, Cheerup
+
     else
         can :create, User
         can :read, :all

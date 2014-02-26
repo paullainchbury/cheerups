@@ -13,11 +13,12 @@
           <li><%= current_user.email %></li>
           <%= image_tag("#{current_user.image}" + '?type=small') if current_user.image %>
           <li><%= link_to 'logout', destroy_user_session_path, method: :delete %></li>
+          <li><%=link_to "Flagged cheerups", flagged_cheerups_path if can? :flagged_cheerups, Cheerup %></li>
         <% else %>
           <li><%= link_to 'sign in', new_user_session_path %><li>
           <li><%= link_to 'register', new_user_registration_path %><li>
           <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %><li>
-          <li><%=link_to "Flagged cheerups", flagged_cheerups_path if can? :able_to_see_link, Cheerup %></li>
+
         <% end %>
       </ul>
     </div>
