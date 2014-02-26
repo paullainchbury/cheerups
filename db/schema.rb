@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140225083124) do
+ActiveRecord::Schema.define(:version => 20140225170043) do
 
   create_table "cheerup_votes", :force => true do |t|
     t.integer  "cheerup_id"
