@@ -12,6 +12,7 @@ gem 'pry-byebug'
 gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 gem 'kaminari'
 gem 'cancan'
+gem 'social-share-button'
 
 group :development do
   gem 'better_errors'

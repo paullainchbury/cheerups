@@ -51,6 +51,7 @@ class CheerupsController < ApplicationController
 
     respond_to do |format|
       if @cheerup.save
+        track_activity @cheerup
         format.html { redirect_to @cheerup, notice: 'Cheerup was successfully created.' }
         format.json { render json: @cheerup, status: :created, location: @cheerup }
       else
@@ -67,6 +68,7 @@ class CheerupsController < ApplicationController
 
     respond_to do |format|
       if @cheerup.update_attributes(params[:cheerup])
+        track_activity @cheerup
         format.html { redirect_to @cheerup, notice: 'Cheerup was successfully updated.' }
         format.json { head :no_content }
       else
@@ -83,6 +85,7 @@ class CheerupsController < ApplicationController
     @cheerup.destroy
 
     respond_to do |format|
+      track_activity @cheerup
       format.html { redirect_to cheerups_url }
       format.json { head :no_content }
     end

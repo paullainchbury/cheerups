@@ -5,8 +5,11 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
+
+
   <div id="nav">
       <ul>
         <% if current_user %>
@@ -41,6 +44,11 @@
       </tr>
       <% end %>
     </table>
+
+    <h1>Activities</h1>
+      <% @activities.each do |activity| %>
+      <%= ActivityPresenter.new(activity, self).render_activity %>
+      <% end %>
 
 
   <div class="container" >
