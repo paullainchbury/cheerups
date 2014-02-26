@@ -116,10 +116,7 @@ class CheerupsController < ApplicationController
     redirect_to flagged_cheerups_path
   end
 
-  # action
-  # route
-  # ability
-  # stuff in action to actually untag it
+
 
   def vote
     vote = current_user.cheerup_votes.new(value: params[:value], cheerup_id: params[:id])
