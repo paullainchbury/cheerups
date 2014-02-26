@@ -1,6 +1,6 @@
 class CheerupsController < ApplicationController
   load_and_authorize_resource
-  before_filter :authenticate_user!
+
   # GET /cheerups
   # GET /cheerups.json
   def index

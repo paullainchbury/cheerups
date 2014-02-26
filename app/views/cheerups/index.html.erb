@@ -16,7 +16,7 @@
   <div class="cheerup_author">Created by <%= cheerup.user.email %> <%= time_ago_in_words(cheerup.created_at) %> ago</div>
   <div class="facebook-image"><%= image_tag("#{cheerup.user.image}" + '?type=small') if cheerup.user.image %>
   <div class="voting">Vote Up || Vote down || <%= cheerup.cheerpoints %> votes already </div>
-  <div class="actions"><%= link_to 'Edit', edit_cheerup_path(cheerup) %> | <%= link_to 'Delete', cheerup, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= toggle_flag_button(cheerup, current_user) %></div>
+  <div class="actions"><%= link_to 'Edit', edit_cheerup_path(cheerup) %> | <%= link_to 'Delete', cheerup, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= toggle_flag_button(cheerup, current_user) if current_user %></div>
   <div class="sharing"><button id="facebook_share">Share this on Facebook</button></div>
 </div>
 <% end %>
