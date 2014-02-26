@@ -10,6 +10,8 @@ Cheerupapp::Application.routes.draw do
 
   root :to => "cheerups#index"
 
+  get '/flagged_cheerups', to: 'cheerups#flagged_cheerups', as: 'flagged_cheerups'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

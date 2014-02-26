@@ -15,6 +15,8 @@ def initialize(user)
         can :read, :all
         can :create, Cheerup
         can :flag, Cheerup
+        can :vote, Cheerup
+        cannot :able_to_see_link, Cheerup
     else
         can :create, User
         can :read, :all

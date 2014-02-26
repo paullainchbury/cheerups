@@ -45,9 +45,7 @@ class User < ActiveRecord::Base
   new_flag
   end
 
-  def role?(role)
-    self.role.to_s == role.to_s
-  end
+
 
   def total_votes_received
     CheerupVote.joins(:cheerup).where(cheerups: {user_id: self.id}).sum('value')
@@ -60,6 +58,10 @@ class User < ActiveRecord::Base
   def can_vote_for?(cheerup)
     # cheerup_votes.build(value: 1, cheerup: cheerup).valid?
     true
+  end
+
+  def role?(role)
+    self.role.to_s == role.to_s
   end
 
   private
