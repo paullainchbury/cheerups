@@ -1,0 +1,11 @@
+<div class="cheerup">
+  <%= simple_format cheerup.content %>
+  <em>
+    -- <%= cheerup.user.name %>
+    | <%= pluralize cheerup.votes, "vote" %>
+    <% if current_user && current_user.can_vote_for?(cheerup) %>
+      | <%= link_to "up", vote_cheerup_path(cheerup, value: 1), method: "post" %>
+      | <%= link_to "down", vote_cheerup_path(cheerup, value: -1), method: "post" %>
+    <% end %>
+  </em>
+</div>

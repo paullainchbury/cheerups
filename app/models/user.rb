@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   before_validation :set_default_role
   has_many :cheerups
   has_many :cheerup_votes
+  has_many :activities
   make_flagger
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
