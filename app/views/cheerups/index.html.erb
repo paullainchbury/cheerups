@@ -17,16 +17,18 @@
       <div class="facebook-image"><%= image_tag("#{cheerup.user.image}" + '?type=small') if cheerup.user.image %>
         <div class="voting"><%= link_to '', vote_cheerup_path(cheerup, value: 1), method: "post", class: 'fa fa-arrow-up' %>|<%= link_to '', vote_cheerup_path(cheerup, value: -1), method: "post", class: 'fa fa-arrow-down' %>| <%= pluralize cheerup.votes, "vote" %> </div>
       <div class="actions"><%= link_to 'Edit', edit_cheerup_path(cheerup) if can? :edit, cheerup %> <%= link_to '', cheerup, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-trash-o' if can? :delete, cheerup %> <%= toggle_flag_button(cheerup, current_user) %></div>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=http://fierce-depths-1541.herokuapp.com/cheerups" target="_blank">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=fierce-depths-1541.herokuapp.com/cheerups/<%= cheerup.id %>" target="_blank">
         Share on Facebook
       </a>
 
+     
+
       <!-- AddThis Button BEGIN -->
         <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-        <a class="addthis_button_twitter" href="http://www.addthis.com/bookmark.php"
+        <a class="addthis_button_twitter" href="http://fierce-depths-1541.herokuapp.com/cheerups/<%= cheerup.id %>"
             class="addthis_button"
            addthis:title="<%= cheerup.title %>"
-           addthis:url="http://example.com"></a>
+           addthis:url="http://fierce-depths-1541.herokuapp.com/cheerups/<%= cheerup.id %>"></a>
         <a class="addthis_button_linkedin" href="http://www.addthis.com/bookmark.php"
             class="addthis_button"
            addthis:url="http://example.com"
