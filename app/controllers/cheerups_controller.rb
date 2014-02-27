@@ -44,6 +44,7 @@ class CheerupsController < ApplicationController
   # POST /cheerups
   # POST /cheerups.json
   def create
+    
     @cheerup = Cheerup.new(params[:cheerup])
     @cheerup.user = current_user
     @cheerup.cheerpoints = 0

@@ -59,6 +59,29 @@ $(function(){
 
   changeCheerupText();
 
+  $('#cheerup_imageupload').change(function(){
+      console.log(this);
+      Test.UpdatePreview(this);
+  });
+
+  var Test = {
+        UpdatePreview: function(obj){
+          // if IE < 10 doesn't support FileReader
+          if(!window.FileReader){
+             // don't know how to proceed to assign src to image tag
+          } else {
+             var reader = new FileReader();
+             var target = null;
+             
+             reader.onload = function(e) {
+              target =  e.target || e.srcElement;
+               $("img").prop("src", target.result);
+             };
+              reader.readAsDataURL(obj.files[0]);
+          }
+        }
+    };
+
 });
 
 function charCheck() {
@@ -73,7 +96,7 @@ function charCheck() {
         $('#counter').removeClass().addClass('countCharsOK');
       }
     $('#counter').text(charsLeft);
-    }
+    };
 
 function changeCheerupText() {
   $('#main_text').text($('#cheerup_title').val());
@@ -89,3 +112,6 @@ function changeImageText(image) {
   $('#cheerup_image').text(image);
   $('#cheerup_image').val(image);
 };
+
+
+

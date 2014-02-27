@@ -7,7 +7,11 @@
   <% if cheerup %>
     <div class="a_cheerup">
       <div id="the_canvas">
-        <img class="the_image" src="<%= cheerup.image %>"/>
+        <% if cheerup.imageupload.to_s != "" %>
+          <img class="the_image" src="<%= cheerup.imageupload %>"/>
+        <% else %>
+          <img class="the_image" src="<%= cheerup.image %>"/>
+        <% end %>
         <div id="main_text"><%= cheerup.title %></div>
         <div id="sub_text"><%= cheerup.sub_title %></div>
       </div>

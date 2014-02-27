@@ -1,6 +1,10 @@
 ---
+Motivation1.jpg: Motivation1-638eaaa062d64adda7f087d03dca59a7.jpg
+Motivation1/index.jpg: Motivation1-638eaaa062d64adda7f087d03dca59a7.jpg
 Motivation1.png: Motivation1-940a03b4f01f5014ca8e82a21dfe6a2d.png
 Motivation1/index.png: Motivation1-940a03b4f01f5014ca8e82a21dfe6a2d.png
+Motivation2.jpg: Motivation2-a8cfc3fa4c340c315933d60d2955d0f3.jpg
+Motivation2/index.jpg: Motivation2-a8cfc3fa4c340c315933d60d2955d0f3.jpg
 Motivation2.png: Motivation2-faf5a571d274bd45d68032dc58827f44.png
 Motivation2/index.png: Motivation2-faf5a571d274bd45d68032dc58827f44.png
 littlehouse.jpg: littlehouse-a72b0c5857608fa32badb088f408df17.jpg
@@ -11,10 +15,10 @@ road.jpg: road-1ea3b27c84f4ee7b2e72341cab338a1c.jpg
 road/index.jpg: road-1ea3b27c84f4ee7b2e72341cab338a1c.jpg
 yellowfield.jpg: yellowfield-807faa658b072cc2ce2bb230fb9f8725.jpg
 yellowfield/index.jpg: yellowfield-807faa658b072cc2ce2bb230fb9f8725.jpg
-application.js: application-fd06cc020c22af15065b155753e3e98f.js
-application/index.js: application-fd06cc020c22af15065b155753e3e98f.js
-application.css: application-f68574aaac0512c16163b5e768215514.css
-application/index.css: application-f68574aaac0512c16163b5e768215514.css
+application.js: application-d92ac5f9a31c66543c0edd9bcc70913f.js
+application/index.js: application-d92ac5f9a31c66543c0edd9bcc70913f.js
+application.css: application-3492e389616241e184833bd2ef9c95c5.css
+application/index.css: application-3492e389616241e184833bd2ef9c95c5.css
 jquery.min.map: jquery.min-388372ef65cc311f6a3df4a6ceac8d22.map
 jquery/index.min.map: jquery.min-388372ef65cc311f6a3df4a6ceac8d22.map
 sprites/social-share-button.png: sprites/social-share-button-838305823dd87097e2230def717be5f9.png
