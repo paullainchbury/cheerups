@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140227104650) do
+ActiveRecord::Schema.define(:version => 20140227192657) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -61,6 +61,15 @@ ActiveRecord::Schema.define(:version => 20140227104650) do
   add_index "flaggings", ["flaggable_type", "flaggable_id"], :name => "index_flaggings_on_flaggable_type_and_flaggable_id"
   add_index "flaggings", ["flagger_type", "flagger_id", "flaggable_type", "flaggable_id"], :name => "access_flaggings"
 
+  create_table "locations", :force => true do |t|
+    t.string   "address"
+    t.string   "ip_address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -79,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20140227104650) do
     t.string   "uid"
     t.string   "image"
     t.string   "role"
+    t.string   "locale"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
