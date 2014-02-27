@@ -114,7 +114,7 @@ class CheerupsController < ApplicationController
 
   def clear_flags
     @cheerup = Cheerup.find(params[:id])
-    @cheerup.flaggings = []
+    @cheerup.flaggings.destroy_all
     @cheerup.save
     redirect_to flagged_cheerups_path
   end
