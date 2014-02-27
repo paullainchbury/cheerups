@@ -10,6 +10,13 @@
 
 
   </title>
+  <% if @cheerup %>
+
+  <meta property="og:title" content="<%= @cheerup.title %> - <%= @cheerup.sub_title %>" />
+  <meta property="og:description" content="Send your own cheerups at www.cheerups.com!" />
+
+  <% end %>
+
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <%= stylesheet_link_tag    "application", :media => "all" %>
