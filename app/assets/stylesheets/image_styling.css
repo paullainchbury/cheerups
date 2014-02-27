@@ -12,8 +12,6 @@
 .the_image {
   height: 250px;
   width: 470px;
-  /*background-image:url('motivation2.png');
-  background-size: cover;*/
   position: relative;
   left: 30px;
   top: 20px;
@@ -33,11 +31,11 @@
 }
 
 #thumb1 {
-  background-image:url('motivation1.png');
+  background-image:url('motivation1.jpg');
 }
 
 #thumb2 {
-  background-image:url('motivation2.png');
+  background-image:url('motivation2.jpg');
 }
 
 #thumb3 {
@@ -72,6 +70,29 @@
 
 #sub_text {
   top: 35px;
+}
+
+.social_thumbnail {
+  height: 30px;
+  width: 30px;
+  background-size: cover;
+  float: left;
+  margin-right: 5px;
+}
+
+#fb_thumbnail {
+  background-image:url('FB_icon.jpg');
+}
+
+#twitter_thumbnail {
+  background-image:url('twitter_icon.jpg');
+}
+
+.social {
+  display: block;
+  height: 30px;
+  margin-top: 5px;
+  margin-bottom: 30px;
 }
 
 

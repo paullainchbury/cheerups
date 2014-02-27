@@ -1,45 +1,31 @@
 
 <%= flash[:notice] %>
 
-
-
 <% @cheerups.each do |cheerup| %>
   <% if cheerup %>
     <div class="a_cheerup">
       <div id="the_canvas">
-        <img class="the_image" src="<%= cheerup.image %>"/>
+        <% if cheerup.imageupload.to_s != "" %>
+          <img class="the_image" src="<%= cheerup.imageupload %>"/>
+        <% else %>
+          <img class="the_image" src="<%= cheerup.image %>"/>
+        <% end %>
         <div id="main_text"><%= cheerup.title %></div>
         <div id="sub_text"><%= cheerup.sub_title %></div>
       </div>
       <div class="cheerup_author">Created by <%= cheerup.user.email %><%= time_ago_in_words(cheerup.created_at) %> ago</div>
       <div class="facebook-image"><%= image_tag("#{cheerup.user.image}" + '?type=small') if cheerup.user.image %>
-        <div class="voting"><%= link_to 'UpVote', vote_cheerup_path(cheerup, value: 1), method: "post" %>||<%= link_to 'DownVote', vote_cheerup_path(cheerup, value: -1), method: "post" %>|| <%= pluralize cheerup.votes, "vote" %> </div>
-      <div class="actions"><%= link_to 'Edit', edit_cheerup_path(cheerup) %> | <%= link_to 'Delete', cheerup, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= toggle_flag_button(cheerup, current_user) %></div>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=http://fierce-depths-1541.herokuapp.com/cheerups" target="_blank">
-        Share on Facebook
-      </a>
+        <div class="voting"><%= link_to '', vote_cheerup_path(cheerup, value: 1), method: "post", class: 'fa fa-arrow-up' %>|<%= link_to '', vote_cheerup_path(cheerup, value: -1), method: "post", class: 'fa fa-arrow-down' %>| <%= pluralize cheerup.votes, "vote" %> </div>
+      <div class="actions"><%= link_to 'Edit', edit_cheerup_path(cheerup) if can? :edit, cheerup %> <%= link_to '', cheerup, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-trash-o' if can? :delete, cheerup %> <%= toggle_flag_button(cheerup, current_user) %></div>
+      <div class="social">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=fierce-depths-1541.herokuapp.com/cheerups/<%= cheerup.id %>" target="_blank"><div class="social_thumbnail" id="fb_thumbnail" ></div></a>
+        <a href="https://twitter.com/home?status=<%= cheerup.title.gsub('%20', ' ')%> - <%=cheerup.sub_title%>%20http://fierce-depths-1541.herokuapp.com/cheerups/<%= cheerup.id %>" target="_blank"><div class="social_thumbnail" id="twitter_thumbnail" ></div></a>
+      </div>
 
-      <!-- AddThis Button BEGIN -->
-        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-        <a class="addthis_button_twitter" href="http://www.addthis.com/bookmark.php"
-            class="addthis_button"
-           addthis:title="<%= cheerup.title %>"
-           addthis:url="http://example.com"></a>
-        <a class="addthis_button_linkedin" href="http://www.addthis.com/bookmark.php"
-            class="addthis_button"
-           addthis:url="http://example.com"
-           addthis:title="An Example Title"></a>
-        <a class="addthis_button_pinterest_share" href="http://www.addthis.com/bookmark.php"
-            class="addthis_button"
-           addthis:url="http://example.com"
-           addthis:title="An Example Title"></a>
-        <a class="addthis_button_email" href="http://www.addthis.com/bookmark.php"
-            class="addthis_button"
-           addthis:url="http://example.com"
-           addthis:title="An Example Title"></a>
-        </div>
-        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-530dff5028c3c4f8"></script>
-      <!-- AddThis Button END -->
+
+      
+
+     
     </div>
     <% end %>
 <% end %>

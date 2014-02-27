@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140226153541) do
+ActiveRecord::Schema.define(:version => 20140227104650) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20140226153541) do
     t.string   "title"
     t.string   "sub_title"
     t.string   "image"
+    t.string   "imageupload"
   end
 
   add_index "cheerups", ["user_id"], :name => "index_cheerups_on_user_id"

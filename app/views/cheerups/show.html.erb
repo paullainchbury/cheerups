@@ -1,3 +1,11 @@
-
+ <div id="the_canvas">
+        <% if @cheerup.imageupload.to_s != "" %>
+          <img class="the_image" src="<%= @cheerup.imageupload %>"/>
+        <% else %>
+          <img class="the_image" src="<%= @cheerup.image %>"/>
+        <% end %>
+        <div id="main_text"><%= @cheerup.title %></div>
+        <div id="sub_text"><%= @cheerup.sub_title %></div>
+      </div>
 
 <p><%= link_to 'Back', cheerups_path %></p>

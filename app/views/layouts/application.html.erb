@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cheerupapp</title>
+  <title>
+    <% if @cheerup %>
+      <%= @cheerup.title %> - <%= @cheerup.sub_title %>
+    <% else %>
+      Cheerupapp
+    <% end %>
+
+
+  </title>
+  <% if @cheerup %>
+
+  <meta property="og:title" content="<%= @cheerup.title %> - <%= @cheerup.sub_title %>" />
+  <meta property="og:description" content="Send your own cheerups at www.cheerups.com!" />
+
+  <% end %>
+
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
@@ -31,14 +48,11 @@
           <button><%= link_to 'New Cheerup', new_cheerup_path %></button>
         </ul>
 
-        
+
 
       </div>
       <div id="notices">
-        <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
-
-
       </div>
     </header>
 
@@ -47,8 +61,13 @@
 
   <div class="container" >
 
+<<<<<<< HEAD
     
     <div id="sidebar" class="container four columns">
+=======
+
+    <div id="sidebar" class="container four columns" style="display:inline-block" >
+>>>>>>> 5eb56648d61be5453f98d64c2cdc463c00b77291
       <div id="leaderboard">
         <h2>Leaderboard</h2>
           <table>

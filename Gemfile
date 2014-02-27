@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.16'
 ruby '2.0.0'
 
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -14,6 +15,9 @@ gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 gem 'kaminari'
 gem 'cancan'
 gem 'social-share-button'
+gem 'carrierwave'
+gem "fog", "~> 1.3.1"
+gem "mini_magick"
 
 group :development do
   gem 'better_errors'

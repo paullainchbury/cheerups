@@ -1,7 +1,37 @@
-<h1><%= @user.email %>'s Page</h1>
+<h1><%= @user.email %> Profile</h1>
+
+
+<%= image_tag("#{@user.image}" + '?type=large') if @user.image %>
 <br>
-<%= image_tag("#{@user.image}" + '?type=small') %>
+<%= @user.email %> uploaded:
 <br>
-<%= @user.email %>
+
+<% @user.cheerups.each do |cheerup| %>
+  <div class="a_cheerup">
+    <div id="the_canvas">
+      <img class="the_image" src="<%= cheerup.image %>"/>
+      <div id="main_text"><%= cheerup.title %></div>
+      <div id="sub_text"><%= cheerup.sub_title %></div>
+    </div>
+
+    <br>
+    <br>
+<% end %>
+
 <br>
-<%= @user.created_at %>
+<% @user.email %> upvoted:
+
+<% @cheerups_upvoted.each do |cheerup_vote| %>
+  <% cheerup = cheerup_vote.cheerup %>
+  <div class="a_cheerup">
+    <div id="the_canvas">
+      <img class="the_image" src="<%= cheerup.image %>"/>
+      <div id="main_text"><%= cheerup.title %></div>
+      <div id="sub_text"><%= cheerup.sub_title %></div>
+  </div>
+    <br>
+    <br>
+<% end %>
+
+
+
