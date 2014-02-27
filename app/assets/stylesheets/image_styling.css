@@ -72,4 +72,27 @@
   top: 35px;
 }
 
+.social_thumbnail {
+  height: 30px;
+  width: 30px;
+  background-size: cover;
+  float: left;
+  margin-right: 5px;
+}
+
+#fb_thumbnail {
+  background-image:url('FB_icon.jpg');
+}
+
+#twitter_thumbnail {
+  background-image:url('twitter_icon.jpg');
+}
+
+.social {
+  display: block;
+  height: 30px;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
 
