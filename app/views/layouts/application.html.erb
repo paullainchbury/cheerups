@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cheerupapp</title>
+  <title>
+    <% if @cheerup %>
+      <%= @cheerup.title %> - <%= @cheerup.sub_title %>
+    <% else %>
+      Cheerupapp
+    <% end %>
+
+
+  </title>
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <%= stylesheet_link_tag    "application", :media => "all" %>
