@@ -67,6 +67,7 @@ $(function(){
       console.log("You clicked");
       cheerup = $(event.target).parents(".a_cheerup").find('.cheerupid').text();
       user = $(event.target).parents(".a_cheerup").find('.username').text();
+
       // path = 
 
         $.ajax({
