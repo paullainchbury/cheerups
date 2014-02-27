@@ -44,7 +44,7 @@ class CheerupsController < ApplicationController
   # POST /cheerups
   # POST /cheerups.json
   def create
-    
+
     @cheerup = Cheerup.new(params[:cheerup])
     @cheerup.user = current_user
     @cheerup.cheerpoints = 0
@@ -116,7 +116,7 @@ class CheerupsController < ApplicationController
   def clear_flags
     @cheerup = Cheerup.find(params[:id])
     @cheerup.flaggings.destroy_all
-    @cheerup.save
+    #@cheerup.save
     redirect_to flagged_cheerups_path
   end
 
