@@ -53,7 +53,7 @@ class CheerupsController < ApplicationController
     respond_to do |format|
       if @cheerup.save
         track_activity @cheerup
-        format.html { redirect_to cheerups_path, notice: 'Cheerup was successfully created from the controller.' }
+        format.html { redirect_to cheerups_path, notice: 'Cheerup was successfully created' }
         format.json { render json: @cheerup, status: :created, location: @cheerup }
       else
         format.html { render action: "new" }
