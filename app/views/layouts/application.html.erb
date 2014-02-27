@@ -36,7 +36,8 @@
           <% if current_user %>
             <li><%=link_to "Flagged cheerups", flagged_cheerups_path if can? :flagged_cheerups, Cheerup %></li>
             <li><%= current_user.email %></li>
-            <%= image_tag("#{current_user.image}" + '?type=small') if current_user.image %>
+            <%= link_to(image_tag("#{current_user.image}" + '?type=small'), users_profile_path(current_user)) if current_user.image %>
+
             <li><%= link_to 'logout', destroy_user_session_path, method: :delete %></li>
 
           <% else %>

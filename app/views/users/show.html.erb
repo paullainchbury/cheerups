@@ -3,7 +3,8 @@
 
 <%= image_tag("#{@user.image}" + '?type=large') if @user.image %>
 <br>
-<%= @user.email %> uploaded:
+<%= @user.email %> Uploaded:
+<br>
 <br>
 
 <% @user.cheerups.each do |cheerup| %>
@@ -23,7 +24,9 @@
 <% end %>
 
 <br>
-<% @user.email %> upvoted:
+<% @user.email %> Upvoted:
+<br>
+<br>
 
 <% @cheerups_upvoted.each do |cheerup_vote| %>
   <% cheerup = cheerup_vote.cheerup %>
