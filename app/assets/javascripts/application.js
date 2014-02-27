@@ -74,7 +74,7 @@ $(function(){
              
              reader.onload = function(e) {
               target =  e.target || e.srcElement;
-               $("img").prop("src", target.result);
+               // $("img").prop("src", target.result);
              };
               reader.readAsDataURL(obj.files[0]);
           }
