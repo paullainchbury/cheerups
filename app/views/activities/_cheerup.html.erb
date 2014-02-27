@@ -1,10 +1,10 @@
-<%= cheerup.user.email %>
-<%= activity.action.sub(/e?$/, "ed") %> cheerup
-<%= link_to "#{activity.trackable.title} #{activity.trackable.sub_title}", cheerup if cheerup %>
-<% if activity.action == 'update' %>
-  <%= distance_of_time_in_words(cheerup.updated_at, Time.zone.now) %> ago
-<% elsif activity.action == 'create' %>
-  <%= distance_of_time_in_words(cheerup.created_at, Time.zone.now) %> ago
-<% else %>
-  <%= %>
+<% if cheerup %>
+  <%= cheerup.user.email %>
+  <%= activity.action.sub(/e?$/, "ed") %> cheerup
+  <%= link_to "#{activity.trackable.title} #{activity.trackable.sub_title}", cheerup if cheerup %>
+  <% if activity.action == 'update' %>
+    <%= distance_of_time_in_words(cheerup.updated_at, Time.zone.now) %> ago
+  <% else activity.action == 'create' %>
+    <%= distance_of_time_in_words(cheerup.created_at, Time.zone.now) %> ago
+  <% end %>
 <% end %>
