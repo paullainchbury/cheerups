@@ -60,7 +60,6 @@ $(function(){
   changeCheerupText();
 
   $('#cheerup_imageupload').change(function(){
-      console.log(this);
       Test.UpdatePreview(this);
   });
 
