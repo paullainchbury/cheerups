@@ -76,7 +76,7 @@
             </tr>
             <% @users.first(5).each do |user| %>
             <tr>
-              <td><%= user.email %></td>
+              <td><%= link_to "#{user.email}", users_profile_path(user) %></td>
               <td><%= user.total_votes_received %></td>
             </tr>
             <% end %>
