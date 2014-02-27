@@ -17,6 +17,7 @@ gem 'cancan'
 gem 'social-share-button'
 gem 'carrierwave'
 gem "fog", "~> 1.3.1"
+gem "mini_magick"
 
 group :development do
   gem 'better_errors'
