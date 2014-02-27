@@ -1,9 +1,10 @@
 class Cheerup < ActiveRecord::Base
+  mount_uploader :imageupload, ImageUploadUploader
   belongs_to :user
   has_many :cheerup_votes
 
   make_flaggable :inappropriate
-  attr_accessible :title, :sub_title, :cheerpoints, :image
+  attr_accessible :title, :sub_title, :cheerpoints, :image, :imageupload, :imageupload_cache
 
   default_scope order("created_at DESC")
 
