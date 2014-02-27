@@ -123,10 +123,14 @@ class CheerupsController < ApplicationController
 
   def vote
     vote = current_user.cheerup_votes.new(value: params[:value], cheerup_id: params[:id])
-    if vote.save
-      redirect_to :back, notice: "Thank you for voting."
+    if User.where(role: :user || :admin)
+      if vote.save
+        redirect_to :back, notice: "Thank you for voting."
+      else
+        redirect_to :back, alert: "Unable to vote, perhaps you already did."
+      end
     else
-      redirect_to :back, alert: "Unable to vote, perhaps you already did."
+      redirect_to new_user_registration_path, alert: "You must be a registered user to vote."
     end
   end
 

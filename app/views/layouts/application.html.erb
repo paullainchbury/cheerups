@@ -6,54 +6,13 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  
-  <style type="text/css">
-    h2 {
-      font-family: 'Source Sans Pro', sans-serif;
-    }
-    li, p {
-      font-family: sans-serif;
-    }
-    div .activity, td {
-      font-family: sans-serif;
-    }
-    table {
-      font-family: sans-serif;
-      font-size:12px;
-      background:#fff;
-      border-collapse:collapse;
-      text-align:center;margin:20px;
-      }
-    thead {
-      padding:10px 8px;
-    }
-    th {
-      font-size:14px;
-      font-weight:normal;
-      color:#039;
-      border-bottom:2px solid #000;
-      padding:10px 8px;
-    }
-    td {
-      color:#669;
-      padding:9px 8px 0;
-    }
-    #leaderboard, #activities {
-      margin: 15px 0px; 
-      border-radius: 5px;
-      border: 1px solid #ddd;
-      background-color: #fff;
-      color: gray;
-    }
-  </style>
-
 </head>
 <body>
 
-  <header style="width:100%; background-color: #533354; height: 50px;">
+  <header>
     <div class="container sixteen columns" id="nav">
 
-      <h1 style="position: absolute; top: 0; font-family: 'Source Sans Pro', sans-serif; font-size:2.4em">Cheerups</h1>
+      <h1>Cheerups</h1>
 
         <ul>
 
@@ -69,7 +28,7 @@
             <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %><li>
 
           <% end %>
-          <button style="display: inline"><%= link_to 'New Cheerup', new_cheerup_path %></button>
+          <button><%= link_to 'New Cheerup', new_cheerup_path %></button>
         </ul>
 
         
@@ -89,15 +48,15 @@
   <div class="container" >
 
     
-    <div id="sidebar" class="container four columns" style="display:inline-block" >
+    <div id="sidebar" class="container four columns">
       <div id="leaderboard">
-        <h2 style="margin-bottom:0">Leaderboard</h2>
+        <h2>Leaderboard</h2>
           <table>
             <tr>
               <th>Email</th>
               <th>Points</th>
             </tr>
-            <% @users.each do |user| %>
+            <% @users.first(5).each do |user| %>
             <tr>
               <td><%= user.email %></td>
               <td><%= user.total_votes_received %></td>
@@ -108,7 +67,7 @@
 
       <div id="activities">
         <h2>Activities</h2>
-          <% @activities.each do |activity| %>
+          <% @activities.first(5).each do |activity| %>
           <%= ActivityPresenter.new(activity, self).render_activity %>
           <% end %>
       </div>
