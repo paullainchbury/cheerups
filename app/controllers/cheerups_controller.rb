@@ -44,7 +44,7 @@ class CheerupsController < ApplicationController
   # POST /cheerups
   # POST /cheerups.json
   def create
-    
+
     @cheerup = Cheerup.new(params[:cheerup])
     @cheerup.user = current_user
     @cheerup.cheerpoints = 0
@@ -53,7 +53,7 @@ class CheerupsController < ApplicationController
     respond_to do |format|
       if @cheerup.save
         track_activity @cheerup
-        format.html { redirect_to cheerups_path, notice: 'Cheerup was successfully created from the controller.' }
+        format.html { redirect_to cheerups_path, notice: 'Cheerup was successfully created' }
         format.json { render json: @cheerup, status: :created, location: @cheerup }
       else
         format.html { render action: "new" }
@@ -116,7 +116,7 @@ class CheerupsController < ApplicationController
   def clear_flags
     @cheerup = Cheerup.find(params[:id])
     @cheerup.flaggings.destroy_all
-    @cheerup.save
+    #@cheerup.save
     redirect_to flagged_cheerups_path
   end
 

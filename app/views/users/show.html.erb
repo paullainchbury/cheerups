@@ -1,4 +1,4 @@
-<h1><%= @user.email %> Profile</h1>
+<h1><%= @user.email %>'s profile</h1>
 
 
 <%= image_tag("#{@user.image}" + '?type=large') if @user.image %>
@@ -9,7 +9,11 @@
 <% @user.cheerups.each do |cheerup| %>
   <div class="a_cheerup">
     <div id="the_canvas">
-      <img class="the_image" src="<%= cheerup.image %>"/>
+       <% if cheerup.imageupload.to_s != "" %>
+          <img class="the_image" src="<%= cheerup.imageupload %>"/>
+        <% else %>
+          <img class="the_image" src="<%= cheerup.image %>"/>
+        <% end %>
       <div id="main_text"><%= cheerup.title %></div>
       <div id="sub_text"><%= cheerup.sub_title %></div>
     </div>

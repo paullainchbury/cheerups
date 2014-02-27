@@ -29,7 +29,7 @@
   <header>
     <div class="container sixteen columns" id="nav">
 
-      <h1>Cheerups</h1>
+      <h1><%= link_to 'Cheerups', cheerups_path %></h1>
 
         <ul>
 
@@ -61,13 +61,12 @@
 
   <div class="container" >
 
-<<<<<<< HEAD
-    
-    <div id="sidebar" class="container four columns">
-=======
 
-    <div id="sidebar" class="container four columns" style="display:inline-block" >
->>>>>>> 5eb56648d61be5453f98d64c2cdc463c00b77291
+
+    <div id="sidebar" class="container four columns">
+
+
+
       <div id="leaderboard">
         <h2>Leaderboard</h2>
           <table>
@@ -77,7 +76,7 @@
             </tr>
             <% @users.first(5).each do |user| %>
             <tr>
-              <td><%= user.email %></td>
+              <td><%= link_to "#{user.email}", users_profile_path(user) %></td>
               <td><%= user.total_votes_received %></td>
             </tr>
             <% end %>

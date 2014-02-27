@@ -7,8 +7,11 @@ Cheerupapp::Application.routes.draw do
 
  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks'}
 
- match 'users/:id' => 'users#show', via: :get
- 
+ # match 'users/:id' => 'users#show', via: :get
+
+  get '/users/:id', to: 'users#show', as: 'users_profile'
+
+
   resources :cheerups do
     member do
       get :flag
