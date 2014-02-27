@@ -44,7 +44,7 @@ class CheerupsController < ApplicationController
   # POST /cheerups
   # POST /cheerups.json
   def create
-    
+
     @cheerup = Cheerup.new(params[:cheerup])
     @cheerup.user = current_user
     @cheerup.cheerpoints = 0
@@ -53,7 +53,7 @@ class CheerupsController < ApplicationController
     respond_to do |format|
       if @cheerup.save
         track_activity @cheerup
-        format.html { redirect_to cheerups_path, notice: 'Cheerup was successfully created from the controller.' }
+        format.html { redirect_to cheerups_path, notice: 'Cheerup was successfully created' }
         format.json { render json: @cheerup, status: :created, location: @cheerup }
       else
         format.html { render action: "new" }
@@ -116,7 +116,7 @@ class CheerupsController < ApplicationController
   def clear_flags
     @cheerup = Cheerup.find(params[:id])
     @cheerup.flaggings.destroy_all
-    @cheerup.save
+    #@cheerup.save
     redirect_to flagged_cheerups_path
   end
 
@@ -124,10 +124,14 @@ class CheerupsController < ApplicationController
 
   def vote
     vote = current_user.cheerup_votes.new(value: params[:value], cheerup_id: params[:id])
-    if vote.save
-      redirect_to :back, notice: "Thank you for voting."
+    if User.where(role: :user || :admin)
+      if vote.save
+        redirect_to :back, notice: "Thank you for voting."
+      else
+        redirect_to :back, alert: "Unable to vote, perhaps you already did."
+      end
     else
-      redirect_to :back, alert: "Unable to vote, perhaps you already did."
+      redirect_to new_user_registration_path, alert: "You must be a registered user to vote."
     end
   end
 

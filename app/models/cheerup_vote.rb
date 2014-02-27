@@ -9,6 +9,6 @@ class CheerupVote < ActiveRecord::Base
   validate :ensure_not_author 
 
   def ensure_not_author
-    errors.add :user_id, "is the author of the cheerup" if cheerup.user_id == user_id
+    # errors.add :user_id, "is the author of the cheerup" if cheerup.user_id == user_id
   end
 end

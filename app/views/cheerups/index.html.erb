@@ -15,6 +15,10 @@
       </div>
       <div class="cheerup_author">Created by <div class="username"><%= cheerup.user.email %></div> <%= time_ago_in_words(cheerup.created_at) %> ago</div>
       <div class="facebook-image"><%= image_tag("#{cheerup.user.image}" + '?type=small') if cheerup.user.image %>
+
+      <div class="cheerup_author">Created by <div class="username"><%= link_to cheerup.user.email, users_profile_path(cheerup.user) %></div> <%= time_ago_in_words(cheerup.created_at) %> ago</div>
+      <div class="facebook-image"><%= link_to(image_tag("#{cheerup.user.image}" + '?type=small'), users_profile_path(cheerup.user)) if cheerup.user.image %>
+
         <div class="voting"><%= link_to '', vote_cheerup_path(cheerup, value: 1), method: "post", class: 'fa fa-arrow-up' %>|<%= link_to '', vote_cheerup_path(cheerup, value: -1), method: "post", class: 'fa fa-arrow-down' %>| <%= pluralize cheerup.votes, "vote" %> </div>
       <div class="actions"><%= link_to 'Edit', edit_cheerup_path(cheerup) if can? :edit, cheerup %> <%= link_to '', cheerup, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-trash-o' if can? :delete, cheerup %> <%= toggle_flag_button(cheerup, current_user) %></div>
       <div class="social">
