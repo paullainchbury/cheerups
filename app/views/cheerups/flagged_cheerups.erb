@@ -1,0 +1,16 @@
+<h1>Flagged Cheerups</h1>
+
+<% @cheerups.each do |cheerup| %>
+  <% if cheerup.flaggings.count >= 1 %>
+    <div class="a_cheerup">
+    <div id="the_canvas">
+      <img class="the_image" src="<%= cheerup.image %>"/>
+      <div id="main_text"><%= cheerup.title %></div>
+      <div id="sub_text"><%= cheerup.sub_title %></div>
+    </div>
+    <div class="cheerup_author">Created by <%= cheerup.user.email %> <%= time_ago_in_words(cheerup.created_at) %> ago</div>
+    <div class="facebook-image"><%= image_tag("#{cheerup.user.image}" + '?type=small') if cheerup.user.image %>
+      <%= link_to 'Delete', cheerup, method: :delete, data: { confirm: 'Are you sure?' } %> |
+      <%= link_to "Ignore", clear_flags_cheerup_path(cheerup) %>
+  <%end%>
+<% end %>
