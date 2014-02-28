@@ -48,7 +48,6 @@ class CheerupsController < ApplicationController
     @cheerup = Cheerup.new(params[:cheerup])
     @cheerup.user = current_user
     @cheerup.cheerpoints = 0
-    #binding.pry
 
     respond_to do |format|
       if @cheerup.save

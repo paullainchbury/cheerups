@@ -26,8 +26,6 @@
     <%= f.label :imageupload %><br />
     <%= f.file_field :imageupload %>
     <%= f.hidden_field(:imageupload_cache) %>
-    
-
   </div>
 
   <div id="the_canvas">
@@ -52,35 +50,16 @@
     <p>Characters left: <span id="counter">141</span></p>
   </div>
 
+  <%= f.text_field :compositeupload_data %>
+
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :id => "submit_cheerup" %>
   </div>
 <% end %>
 
-      <canvas id="test_canvas" width="530" height="360" style="border:1px solid #d3d3d3;">
-        <% if @cheerup.imageupload.to_s != "" %>
-          <img id="canvas_image" class="the_image" src="<%= @cheerup.imageupload %>"/>
-        <% else %>
-          <img id="canvas_image" class="the_image" src="<%= @cheerup.image %>"/>
-        <% end %>
-        <div id="canvas_text"><%= @cheerup.title %></div>
-        <div id="sub_text"><%= @cheerup.sub_title %></div>
-      </canvas>
+      <canvas id="test_canvas"></canvas>
 
-      <script>
-        var c = document.getElementById("test_canvas");
-        var ctx = c.getContext("2d");
-        ctx.fillStyle="#000000";
-        ctx.fillRect(0,0,530,360);
-        var img = document.getElementById("canvas_image");
-        ctx.drawImage(img,30,20,470,250);
-        ctx.font = "100 30px Times";
-        ctx.fillStyle = 'white';
-        ctx.textAlign = 'center';
-        var x = c.width / 2;
-        var text = $('#canvas_text').text();
-        ctx.fillText(text,x,310);
-        var dataURL = test_canvas.toDataURL();
-        console.log(dataURL);
-      </script>
+
+
+      

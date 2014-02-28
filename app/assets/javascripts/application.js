@@ -17,6 +17,25 @@
 
 
 $(function(){
+
+  $('#submit_cheerup').click(function(){
+    var c = document.getElementById("test_canvas");
+    var ctx = c.getContext("2d");
+    ctx.font = "100 30px Times";
+    ctx.fillStyle = 'white';
+    ctx.textAlign = 'center';
+    var x = c.width / 2;
+    var text = $('#cheerup_title').val();
+    ctx.fillText(text,x,310);
+    ctx.font = "100 16px Times";
+    var sub_text = $('#cheerup_sub_title').val(); // .split("").join(String.fromCharCode(8202));
+    ctx.fillText(sub_text,x,335);
+    var dataURL = test_canvas.toDataURL();
+    console.log(dataURL);
+    $('#cheerup_compositeupload_data').val(dataURL);
+
+  })
+
   $('#cheerup_title').keyup(function () {
       charCheck();
       changeCheerupText();
@@ -63,27 +82,102 @@ $(function(){
       Test.UpdatePreview(this);
   });
 
+
+// Trying out an html5 image upload to canvas function
+//   function handleImage(e){
+//     var canvas = document.getElementById('test_canvas');
+//     var ctx = canvas.getContext('2d');
+//     ctx.fillStyle="#000000";
+//     ctx.fillRect(0,0,530,360);
+//     var reader = new FileReader();
+//     reader.onload = function(event){
+//         var img = new Image();
+//         img.onload = function(){
+//             canvas.width = 530;
+//             canvas.height = 360;
+//             ctx.drawImage(img,30,20,470,250); //ctx.drawImage(img,0,0);
+//         }
+//         img.src = event.target.result;
+//     }
+//     reader.readAsDataURL(e.target.files[0]);     
+// }
+
+
+
+// <script>
+//         // var c = document.getElementById("test_canvas");
+//         // var ctx = c.getContext("2d");
+//         // ctx.fillStyle="#000000";
+//         // ctx.fillRect(0,0,530,360);
+//         // var img = document.getElementById("canvas_image");
+//         // ctx.drawImage(img,30,20,470,250);
+//         ctx.font = "100 30px Times";
+//         ctx.fillStyle = 'white';
+//         ctx.textAlign = 'center';
+//         var x = c.width / 2;
+//         var text = $('#canvas_text').text();
+//         ctx.fillText(text,x,310);
+//         var dataURL = test_canvas.toDataURL();
+//         console.log(dataURL);
+//       </script>
+
+
+
+
+
+
+// ---------------
+
+
   $('.hc_thumbnail').click(function(event){
       console.log("You clicked");
       cheerup = $(event.target).parents(".a_cheerup").find('.cheerupid').text();
-      user = $(event.target).parents(".a_cheerup").find('.username').text();
+      picture = $(event.target).parents('.a_cheerup').children('#picture_for_hipchat').text();
+      user = $(event.target).parents('.a_cheerup').children('#author_for_hipchat').text();
+
+      // picture = parentDiv.children('#picture_for_hipchat').text();
+      // .children('.author_for_hipchat').text();
+      // picture = $(event.target).parents("#a_cheerup").children('.picture_for_hipchat').text();
+      // thisthing = $(event.target);
+      // console.log(thisthing);
+      // console.log(parentDiv);
+      
+      console.log('Picture: ' + picture);
+      console.log('Cheerup: ' + cheerup);
+      console.log('User: ' + user);
+
 
       // path = 
 
         $.ajax({
-          url:"https://api.hipchat.com/v2/user/584341/message?auth_token=bTrbjP8dnXSsoLTM1lQs80pYlyGmxL7PYbUZx3Jo",
+          url: "https://api.hipchat.com/v2/room/374044/notification?auth_token=n1nswU9gcqQsVDSflIa0cuv4171vNUoIKQg7Eqa5",
+          // url:"https://api.hipchat.com/v2/user/584341/message?auth_token=n1nswU9gcqQsVDSflIa0cuv4171vNUoIKQg7Eqa5",
           type:"POST",
-          data: JSON.stringify({ message: user + ' just created a new cheerup! Take a look at http://fierce-depths-1541.herokuapp.com/cheerups/' + cheerup  + ' https://cheerup.s3.amazonaws.com/uploads/cheerup/imageupload/14/41.jpg'} ), //, message_format: "html" 
+          data: JSON.stringify({ message: user + ' has posted a new cheerup! ' + picture, message_format: 'text' } ), //, message_format: "html" 
           contentType:"application/json; charset=utf-8",
           dataType:"json",
           success: function(data){
-            console.log(data);
+            console.log(data)
           }
         });
   });
 
+  // function drawCanvas(img) {
+  //       var c = document.getElementById("test_canvas");
+  //       var ctx = c.getContext("2d");
+  //       c.width = 530;
+  //       c.height = 360;
+  //       ctx.fillRect(0,0,530,360);
+  //       ctx.drawImage(img,30,20,470,250);
+        
+  // }
+
   var Test = {
         UpdatePreview: function(obj){
+
+          var canvas = document.getElementById('test_canvas');
+          var ctx = canvas.getContext('2d');
+
           // if IE < 10 doesn't support FileReader
           if(!window.FileReader){
              // don't know how to proceed to assign src to image tag
@@ -92,8 +186,20 @@ $(function(){
              var target = null;
              
              reader.onload = function(e) {
+
+              var img = new Image();
+              img.onload = function(){
+                  canvas.width = 530;
+                  canvas.height = 360;
+                  ctx.fillRect(0,0,530,360);
+                  ctx.drawImage(img,30,20,470,250); //ctx.drawImage(img,0,0);
+              };
+
+              img.src = event.target.result;
               target =  e.target || e.srcElement;
                $(".the_image").prop("src", target.result);
+              
+
              };
               reader.readAsDataURL(obj.files[0]);
           }
@@ -101,6 +207,29 @@ $(function(){
     };
 
 });
+
+function drawMainText() {
+    var c = document.getElementById("test_canvas");
+    var ctx = c.getContext("2d");
+    ctx.font = "100 30px Times";
+    ctx.fillStyle = 'white';
+    ctx.textAlign = 'center';
+    var x = c.width / 2;
+    var text = $('#cheerup_title').val();
+    ctx.fillText(text,x,310);
+}
+
+function drawSubText() {
+    var c = document.getElementById("test_canvas");
+    var ctx = c.getContext("2d");
+    ctx.font = "100 16px Times";
+    ctx.fillStyle = 'white';
+    ctx.textAlign = 'center';
+    var x = c.width / 2;
+    var text = $('#cheerup_sub_title').val() // .split("").join(String.fromCharCode(8202));
+    ctx.fillText(text,x,335);
+    getDataUrl();
+}
 
 function charCheck() {
     var charsAvailable = 141
