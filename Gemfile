@@ -18,6 +18,7 @@ gem 'social-share-button'
 gem 'carrierwave'
 gem "fog", "~> 1.3.1"
 gem "mini_magick"
+gem 'geocoder'
 
 group :development do
   gem 'better_errors'
