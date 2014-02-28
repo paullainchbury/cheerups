@@ -1,5 +1,5 @@
-<hr>
 <% if cheerup %>
+  <hr>
   <%= link_to cheerup.user.email, users_profile_path(cheerup.user) %> <br>
   <%= activity.action.sub(/e?$/, "ed") %> cheerup <br>
   <%= link_to "#{activity.trackable.title} #{activity.trackable.sub_title}", cheerup if cheerup  %><br>
