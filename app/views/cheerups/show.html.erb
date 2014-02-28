@@ -1,12 +1,12 @@
  <div id="the_canvas">
-  <% if @cheerup.imageupload.to_s != "" %>
-    <img class="the_image" src="<%= @cheerup.imageupload %>"/>
-  <% else %>
-    <img class="the_image" src="<%= @cheerup.image %>"/>
-  <% end %>
-  <div id="main_text"><%= @cheerup.title %></div>
-  <div id="sub_text"><%= @cheerup.sub_title %></div>
+    <% if @cheerup.imageupload.to_s != "" %>
+      <img id="the_image" class="the_image" src="<%= @cheerup.imageupload %>"/>
+    <% else %>
+      <img id="the_image" class="the_image" src="<%= @cheerup.image %>"/>
+    <% end %>
+    <div id="main_text"><%= @cheerup.title %></div>
+    <div id="sub_text"><%= @cheerup.sub_title %></div>
 </div>
-<div class="cheerup_author">Created by <%= link_to @cheerup.user.email, users_profile_path(@cheerup.user) %> <%= time_ago_in_words(@cheerup.created_at) %> ago
+    <div class="cheerup_author">Created by <%= link_to @cheerup.user.email, users_profile_path(@cheerup.user) %> <%= time_ago_in_words(@cheerup.created_at) %> ago </div>
 
 <p><%= link_to 'Home', cheerups_path %></p>
