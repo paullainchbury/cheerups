@@ -103,5 +103,25 @@
   display: none;
 }
 
+#cheerup_compositeupload_data {
+  display: none;
+}
+
+#cheerup_image {
+  display: none;
+}
+
+#author_for_hipchat {
+  display: none;
+}
+
+#picture_for_hipchat {
+  display: none;
+}
+
+p.cheerupid {
+  display: none;
+}
+
 
 
