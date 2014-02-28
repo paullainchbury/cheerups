@@ -1,15 +1,21 @@
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  color: gray;
+}
+
+h1, h2 {
+  font-family: 'Source Sans Pro';
+}
+
+h1 a {
+  font-family: 'Source Sans Pro';  
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  font-family: sans-serif;
 }
 
 pre {
@@ -18,14 +24,24 @@ pre {
   font-size: 11px;
 }
 
+header div h1 {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size:2.4em;
+  font-weight: normal;
+}
+
 a {
   text-decoration: none;
-  color: #333;
+  color: gray;
+  font-family: 'Source Sans Pro', sans-serif;
   &:visited {
-    color: #333;
+    color: gray;
   }
   &:hover {
-    color: #333;
+    color: gray;
     background-color: #fff;
   }
 }
@@ -74,7 +90,11 @@ table {
   font-size:12px;
   background:#fff;
   border-collapse:collapse;
-  text-align:center;margin:20px;
+  text-align:center;
+  // margin:20px;
+  margin-top: 0;
+  table-layout:fixed;
+  width: 100%;
 }
 
 thead {
@@ -92,6 +112,11 @@ th {
 td {
   color:#669;
   padding:9px 8px 0;
+  text-align: right;
+}
+
+#points {
+  text-align: center;
 }
 
 li, p {
@@ -118,7 +143,13 @@ div .activity, td {
   border-radius: 5px;
   border: 1px solid #ddd;
   background-color: #fff;
-  color: gray;
+  text-align: center;
+}
+
+
+#leaderboard {
+  text-align: center;
+  margin-top: 0px;
 }
 
 header {
@@ -127,15 +158,9 @@ header {
   height: 50px;
 }
 
-header div h1 {
-  position: absolute;
-  top: 0;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size:2.4em
-}
-
 #sidebar {
   display:inline-block;
+  margin-right: 80px;
 }
 
 #sidebar h2 {
@@ -144,4 +169,42 @@ header div h1 {
 
 button {
   display: inline;
+}
+
+header a {
+  text-decoration: none;
+  color: #fff;
+  &:visited {
+    color: #fff;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #533354;
+  }
+}
+
+header {
+  margin-bottom: 40px;
+  position:fixed; 
+  top:0px; 
+  z-index: 1;
+
+}
+
+header h1 {
+  margin-top: 0;
+  line-height: 32px;
+}
+
+header ul {
+  font-size: 1.4em;
+  margin-bottom: 0;
+}
+
+ul li {
+  color: #fff;
+}
+
+.content {
+  margin-top: 90px;
 }
