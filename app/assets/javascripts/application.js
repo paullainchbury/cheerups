@@ -63,6 +63,25 @@ $(function(){
       Test.UpdatePreview(this);
   });
 
+  $('.hc_thumbnail').click(function(event){
+      console.log("You clicked");
+      cheerup = $(event.target).parents(".a_cheerup").find('.cheerupid').text();
+      user = $(event.target).parents(".a_cheerup").find('.username').text();
+
+      // path = 
+
+        $.ajax({
+          url:"https://api.hipchat.com/v2/user/584341/message?auth_token=bTrbjP8dnXSsoLTM1lQs80pYlyGmxL7PYbUZx3Jo",
+          type:"POST",
+          data: JSON.stringify({ message: user + ' just created a new cheerup! Take a look at http://fierce-depths-1541.herokuapp.com/cheerups/' + cheerup  + ' https://cheerup.s3.amazonaws.com/uploads/cheerup/imageupload/14/41.jpg'} ), //, message_format: "html" 
+          contentType:"application/json; charset=utf-8",
+          dataType:"json",
+          success: function(data){
+            console.log(data);
+          }
+        });
+  });
+
   var Test = {
         UpdatePreview: function(obj){
           // if IE < 10 doesn't support FileReader

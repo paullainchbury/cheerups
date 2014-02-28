@@ -88,6 +88,10 @@
   background-image:url('twitter_icon.jpg');
 }
 
+#hc_thumbnail {
+  background-image:url('hipchat.jpg');
+}
+
 .social {
   display: block;
   height: 30px;
