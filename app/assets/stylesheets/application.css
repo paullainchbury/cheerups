@@ -18,16 +18,12 @@ body {
   min-width: 960px;
 }
 
-.container h2 {
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
 ul {
   margin-top: 0px;
 }
 
 #nav {
-  background-color: #533354;
+  background-color: #336699;
   height: 50px;
 /*]*/
 }

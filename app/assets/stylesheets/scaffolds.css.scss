@@ -30,19 +30,18 @@ header div h1 {
   position: absolute;
   top: 0;
   left: 20px;
-  font-family: 'Source Sans Pro', sans-serif;
   font-size:2.4em;
   font-weight: normal;
 }
 
 a {
   text-decoration: none;
-  color: gray;
+  color: #336699;
   &:visited {
-    color: gray;
+    color: #336699;
   }
   &:hover {
-    color: gray;
+    color: #336699;
     background-color: #fff;
   }
 }
@@ -90,6 +89,12 @@ div {
   font-family: 'Comfortaa', cursive;  
 }
 
+hr {
+  color: #336699;
+  background-color: #336699;
+  height: 1px;
+}
+
 table {
   font-family: sans-serif;
   font-size:12px;
@@ -109,13 +114,13 @@ thead {
 th {
   font-size:14px;
   font-weight:normal;
-  color:#039;
-  border-bottom:2px solid #000;
+  color: #336699;
   padding:10px 8px;
+  border-bottom: 0px;
 }
 
 td {
-  color:#669;
+  color:#336699;
   padding:9px 8px 0;
   text-align: right;
 }
@@ -133,20 +138,17 @@ li {
   padding: 5px
 }
 
-h2 {
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
 div .activity, td {
   font-family: sans-serif;
 }
 
-
+.activity {
+  color: #336699;
+}
 
 #leaderboard, #activities {
   margin: 15px 0px; 
   border-radius: 5px;
-  border: 1px solid #ddd;
   background-color: #fff;
   text-align: center;
 }
@@ -159,7 +161,7 @@ div .activity, td {
 
 header {
   width:100%;
-  background-color: #533354;
+  background-color: #336699;
   height: 50px;
 }
 
@@ -170,6 +172,8 @@ header {
 
 #sidebar h2 {
   margin-bottom:0;
+  color: #336699;
+  font-family: 'Comfortaa', cursive;
 }
 
 button {
@@ -184,7 +188,7 @@ header a {
   }
   &:hover {
     color: #fff;
-    background-color: #533354;
+    background-color: #336699;
   }
 }
 
