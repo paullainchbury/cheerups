@@ -15,7 +15,7 @@
       </div>
       <div id ="author_for_hipchat"><%= cheerup.user.email %></div>
       <div id ="picture_for_hipchat"><%= cheerup.compositeupload %></div>
-      <div class="cheerup_author">Created by <div class="username"><%= cheerup.user.email %></div> <%= time_ago_in_words(cheerup.created_at) %> ago</div>
+      <div class="cheerup_author">Created by <%= cheerup.user.email %> <%= time_ago_in_words(cheerup.created_at) %> ago</div>
       <div class="facebook-image"><%= image_tag("#{cheerup.user.image}" + '?type=small') if cheerup.user.image %><div>
 
         <div class="voting"><%= link_to '', vote_cheerup_path(cheerup, value: 1), method: "post", class: 'fa fa-arrow-up' %>|<%= link_to '', vote_cheerup_path(cheerup, value: -1), method: "post", class: 'fa fa-arrow-down' %>| <%= pluralize cheerup.votes, "vote" %> </div>
