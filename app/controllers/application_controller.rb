@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
 
   rescue_from CanCan::AccessDenied do |exception|
-  redirect_to new_user_registration_path , alert: "You must be a registered user."
+  redirect_to new_user_session_path , alert: "You must be a registered user."
   end
 
   before_filter :define_users, :get_activity
